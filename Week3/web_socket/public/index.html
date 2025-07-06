@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💬 WebSocket Chat</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Loading screen -->
+        <div id="loading" class="loading">
+            <div class="spinner"></div>
+            <p>Đang kết nối...</p>
+        </div>
+
+        <!-- Login form -->
+        <div id="loginForm" class="login-container hidden">
+            <div class="login-box">
+                <h1>💬 WebSocket Chat</h1>
+                <div class="form-group">
+                    <input type="text" id="usernameInput" placeholder="Nhập tên của bạn..." maxlength="20">
+                    <button id="joinButton" onclick="joinChat()">Tham gia Chat</button>
+                </div>
+                <div class="server-info">
+                    <span id="serverStatus">Đang kiểm tra kết nối...</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Chat interface -->
+        <div id="chatContainer" class="chat-container hidden">
+            <!-- Header -->
+            <div class="chat-header">
+                <div class="header-left">
+                    <h2>💬 WebSocket Chat</h2>
+                    <span id="connectionStatus" class="status offline">Offline</span>
+                </div>
+                <div class="header-right">
+                    <span id="userCount">0 người online</span>
+                    <button id="settingsBtn" onclick="toggleSettings()">⚙️</button>
+                </div>
+            </div>
+
+            <!-- Main chat area -->
+            <div class="chat-body">
+                <!-- Sidebar -->
+                <div id="sidebar" class="sidebar">
+                    <div class="sidebar-header">
+                        <h3>👥 Người dùng online</h3>
+                    </div>
+                    <div id="userList" class="user-list">
+                        <div class="no-users">Chưa có người dùng nào</div>
+                    </div>
+                </div>
+
+                <!-- Messages area -->
+                <div class="messages-container">
+                    <div id="messages" class="messages"></div>
+                    <div id="typingIndicator" class="typing-indicator hidden"></div>
+                </div>
+            </div>
+
+            <!-- Message input -->
+            <div class="message-input-container">
+                <div class="input-group">
+                    <input type="text" id="messageInput" placeholder="Nhập tin nhắn..." maxlength="500">
+                    <button id="sendButton" onclick="sendMessage()">📤</button>
+                </div>
+                <div class="input-info">
+                    <span id="charCount">0/500</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Settings panel -->
+        <div id="settingsPanel" class="settings-panel hidden">
+            <div class="settings-content">
+                <h3>⚙️ Cài đặt</h3>
+                <div class="setting-item">
+                    <label>
+                        <input type="checkbox" id="soundEnabled" checked>
+                        Âm thanh thông báo
+                    </label>
+                </div>
+                <div class="setting-item">
+                    <label>
+                        <input type="checkbox" id="timestampEnabled" checked>
+                        Hiển thị thời gian
+                    </label>
+                </div>
+                <button onclick="toggleSettings()">Đóng</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
