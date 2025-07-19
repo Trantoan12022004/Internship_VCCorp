@@ -1,0 +1,75 @@
+.about {
+    min-height: 100vh;
+    padding: var(--spacing-xl) 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+}
+
+.hero {
+    text-align: center;
+    margin-bottom: var(--spacing-xxl);
+}
+
+.title {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: var(--spacing-md);
+    line-height: 1.2;
+}
+
+.subtitle {
+    font-size: var(--font-size-lg);
+    color: var(--text-dark);
+    opacity: 0.8;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: var(--spacing-xl);
+}
+
+.techList,
+.featureList {
+    list-style: none;
+    padding: 0;
+}
+
+.techList li,
+.featureList li {
+    padding: var(--spacing-sm) 0;
+    font-size: var(--font-size-md);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.techList li:last-child,
+.featureList li:last-child {
+    border-bottom: none;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 0 var(--spacing-sm);
+    }
+
+    .title {
+        font-size: 2.5rem;
+    }
+
+    .subtitle {
+        font-size: var(--font-size-md);
+    }
+
+    .content {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+    }
+}

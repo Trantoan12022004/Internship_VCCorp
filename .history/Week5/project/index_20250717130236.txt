@@ -1,0 +1,43 @@
+project/
+├── backend/
+│   ├── src/
+│   │   ├── controllers/
+│   │   ├── services/
+│   │   │   ├── geminiService.js
+│   │   │   ├── databaseService.js
+│   │   │   └── chartService.js
+│   │   ├── models/
+│   │   ├── middleware/
+│   │   └
+── websocket/
+│       |
+│   ├── package.json
+│   └── server.js
+├── frontend/
+│   ├── src/
+│   │   ├── components/
+│   │   │   ├── QueryInput.jsx
+│   │   │   ├── ChartDisplay.jsx
+│   │   │   └── Dashboard.jsx
+│   │   ├── services/
+│   │   │   └── websocketService.js
+│   │   ├── utils/
+│   │   └── App.jsx
+│   └── package.json
+└── README.md
+
+Kiến trúc tổng quan
+Frontend (React) ↔ WebSocket ↔ Backend (Node.js) ↔ Gemini API ↔ Database
+
+Các bước triển khai
+1. Backend (Node.js)
+API Gateway: Xử lý request từ frontend
+Gemini Integration: Chuyển đổi natural language → SQL
+Database Connection: Thực thi SQL và trả về dữ liệu
+WebSocket Server: Real-time communication
+2. Frontend (React)
+Input Interface: Cho phép user nhập query bằng tiếng Anh
+Chart Visualization: Hiển thị biểu đồ (Chart.js, D3.js, hoặc Recharts)
+WebSocket Client: Real-time updates
+
+User Input → Frontend → WebSocket → Backend → Gemini API → SQL Generation → Database Query → Data Processing → Chart Data → WebSocket → Frontend → Visualization
